@@ -11,7 +11,7 @@ from plugins.functions.display_progress import humanbytes
 from plugins.database.bcast import broadcast_handler
 
 
-@Client.on_message(filters.command("status") & filters.user(Config.OWNER_ID) & ~filters.edited)
+@Client.on_message(filters.command("status") & filters.user(Config.OWNER_ID))
 async def status_handler(_, m: Message):
     total, used, free = shutil.disk_usage(".")
     total = humanbytes(total)
